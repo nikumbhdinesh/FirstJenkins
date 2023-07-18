@@ -2,14 +2,17 @@ public class FibonacciSeries {
     public static void main(String[] args) {
         int n = 10; // Number of terms to generate
 
-        int firstTerm = 0, secondTerm = 1;
-        System.out.print("Fibonacci Series: " + firstTerm + " " + secondTerm);
+        int[] fibonacciSeries = new int[n];
+        fibonacciSeries[0] = 0;
+        fibonacciSeries[1] = 1;
 
-        for (int i = 3; i <= n; i++) {
-            int nextTerm = firstTerm + secondTerm;
-            System.out.print(" " + nextTerm);
-            firstTerm = secondTerm;
-            secondTerm = nextTerm;
+        for (int i = 2; i < n; i++) {
+            fibonacciSeries[i] = fibonacciSeries[i - 1] + fibonacciSeries[i - 2];
+        }
+
+        System.out.print("Fibonacci Series: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacciSeries[i] + " ");
         }
     }
 }
